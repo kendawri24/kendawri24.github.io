@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <title>myAlign Dashboard</title>
+    <style>
+        /* Font Definitions */
+        @font-face {
+            font-family: myFont; 
+            src: url(sourcesemi.ttf);
+        }
+        @font-face {
+            font-family: myFont2; 
+            src: url(sourcereg.ttf);
+        }
+        @font-face {
+            font-family: myFont3; 
+            src: url(sourcebold.ttf);
+        }
+
+        /* Global Styles */
+        body {
+            margin: 0;
+            height: 100vh; 
+            background-color: #F2F3F5;
+            font-family: myFont2;
+        }
+
+        /* Header */
+        header {
+            background-color: #FFFFFF;
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-start;
+            padding: 10px 30px;
+            position: fixed; 
+            top: 0; 
+            width: 100%;
+            z-index: 1000; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 10;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 16px;
+            font-weight: normal;
+            padding: 5px 10px;
+            font-family: myFont2;
+        }
+
+        .image-container {
+            width: 30px;
+            height: 20px;
+            background-image: url('logo.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Main Content */
+        main {
+            position: relative; 
+            padding: 150px 80px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .affirmation {
+            position: relative;
+            background-color: #68aec1;
+            color: white;
+            font-family: myFont;
+            font-size: 2.75rem; 
+            padding: 5rem 15rem;
+            border-radius: 1rem;
+            text-align: center;
+            max-width: 150rem;
+            margin: 6rem auto;
+            animation: popIn 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .affirmation::before {
+            content: '';
+            position: absolute;
+            left: -20px; 
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 15px 20px 15px 0;
+            border-color: transparent #68aec1 transparent transparent;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Weight Tracker Section */
+        .weight-tracker-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(224, 226, 230, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .weight-tracker {
+            flex: 2;
+            padding: 40px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px;
+            justify-content: center;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+        }
+
+        /* Latest Articles Section */
+        .latest-articles-header {
+            font-family: myFont3;
+            font-size: 2rem; 
+            font-weight: bold;
+            color: #2F3A42;
+            margin-bottom: 2rem;
+            width: 67%;
+        }
+
+        .latest-articles {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .article-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300%;
+        }
+
+        .article-group {
+            display: flex;
+            justify-content: space-between;
+            width: 33.33%;
+            padding: 0 10px;
+        }
+
+        .article {
+            flex: 1;
+            background-color: #F2F3F5;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            margin: 0 10px;
+        }
+
+        .article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .article h3 {
+            font-family: myFont;
+            margin: 10px 0;
+            font-size: 15px;
+            color: #1C1D1F;
+            text-align: left;
+        }
+
+        .dot-container {
+            position: absolute;
+            bottom: 10px; 
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 20px;
+            cursor: pointer;
+            background-image: url('images/dot-2 -unselect.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .dot.selected {
+            background-image: url('images/dot-1-select.svg');
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="alignlanding.html">
+            <div class="image-container"></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="login.html">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="affirmation">
+            I am proud of myself for getting this far.
+        </div>
+
+        <div class="weight-tracker-container">
+            <div class="weight-tracker">
+                <img src="images/weight_tracker.svg" alt="Weight Tracker" style="width: 65%; height: auto;">
+            </div>
+            <div class="info-section">
+                <div class="svg-container">
+                    <img src="images/weight_tracker_label.svg" alt="Weight Tracker Label" style="width: 35%; height: auto;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="latest-articles-header">
+            Latest mental health and wellbeing articles
+        </div>
+
+        <div class="latest-articles">
+            <div class="article-container">
+                <!-- Group 1 -->
+                <div class="article-group">
+                    <div class="article">
+                        <img src="images/healthy 2.jpg" alt="Healthy Eating">
+                        <h3>Healthy Eating Without the Stress (or the Salad Overload)</h3>
+                    </div>
+                    <div class="article">
+                        <img src="images/sadgirl.jpg" alt="Bad Days Happen">
+                        <h3>Bad Days Happen: How to Handle Sadness Without Beating Yourself Up</h3>
+                    </div>
+                    <div class="article">
+                        <img src="images/runner2.jpg" alt="Back to Fitness">
+                        <h3>Lost Your Groove? Here’s How to Find Your Way Back to Fitness</h3>
+                    </div>
+                </div>
+
+                <!-- Group 2 -->
+                <div class="article-group">
+                    <div class="article">
+                        <img src="images/thirstygal.jpg" alt="Back to Fitness">
+                        <h3>Tired, Grumpy, Dehydrated? Here’s Why Water Helps</h3>
+                    </div>
+                    <div class="article">
+                        <img src="images/sadboy.jpg" alt="Back to Fitness">
+                        <h3>Burnout Is Real: Here’s How to Take a Breather and Bounce Back</h3>
+                    </div>
+                    <div class="article">
+                        <img src="images/nervousguy.jpg" alt="Back to Fitness">
+                        <h3>How to Get Over Your Fears and Embrace the Change</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="dot-container">
+                <div class="dot selected"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

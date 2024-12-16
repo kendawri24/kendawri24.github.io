@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <title>Welcome to Align</title>
+    <meta charset="UTF-8">
+
+<style>
+    @font-face{
+        font-family: myFont; 
+        src: url(sourcesemi.ttf);
+    }
+
+    @font-face{
+        font-family: myFont2; 
+        src: url(sourcereg.ttf);
+    }
+
+    @font-face {
+        font-family: myFont3; 
+        src: url(sourcebold.ttf);
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(180deg, #F2F3F5, #F2F3F5);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+    }
+
+    h1 {
+        font-family: myFont;
+    }
+
+    p {
+        font-family: myFont2;
+    }
+
+    header {
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px 30px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 10;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #000000;
+        font-size: 16px;
+        padding: 5px 10px;
+        font-family: myFont2;
+    }
+
+    .try-for-free {
+        display: inline-block;
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 10px 0px;
+        position: absolute;
+        left: -35px;
+        opacity: 0;
+        animation: slideIn 0.8s ease-out forwards;
+        animation-delay: 0.6s;
+    }
+
+    .button-icon {
+        width: 200px;
+        height: 50px;
+        transition: transform 0.3s ease;
+    }
+
+    .try-for-free:hover .button-icon {
+        content: url('tryforfreebutton-hover.svg');
+        transform: scale(1.05);
+    }
+
+    .try-for-free:active .button-icon {
+        animation: clickEffect 0.2s ease-out forwards;
+    }
+
+    @keyframes clickEffect {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(0.95);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* Hero Section */
+    .hero {
+        background-color: #F2F3F5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 70px 30px 25px 30px;
+        gap: 20px;
+        background-image: url('images/wave.png');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .hero-content {
+        flex: 1;
+        max-width: 50%;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.4s;
+    }
+
+    h1, p {
+        opacity: 0;
+        animation: slideIn 0.8s ease-out forwards;
+    }
+
+    h1 {
+        font-family: myFont;
+        font-size: 48px;
+        font-weight: bold;
+        color: #2F3A42;
+        margin: 0 0 10px;
+        animation-delay: 0.2s;
+    }
+
+    p {
+        font-family: myFont2;
+        font-size: 18px;
+        color: #1C1D1F;
+        margin: 0 0 5px;
+        animation-delay: 0.4s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideIn {
+        0% {
+            opacity: 0;
+            transform: translate(25px, 20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+    }
+
+    .header-image {
+        width: 50%;
+        height: auto;
+        align-self: flex-start;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.6s;
+    }
+
+    .features {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 30px;
+        padding: 15px 20px;
+        background-color: #F2F3F5;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .feature-card {
+        background-color: #FFFFFF;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 280px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+    }
+
+    .feature-card:nth-child(1) {
+        animation-delay: 0.5s;
+    }
+
+    .feature-card:nth-child(2) {
+        animation-delay: 0.7s;
+    }
+
+    .feature-card:nth-child(3) {
+        animation-delay: 0.9s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .feature-icon {
+        width: 150px;
+        height: 80px;
+        border-radius: none;
+        margin-bottom: 15px;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .track {
+        background-image: url('track.svg');
+    }
+
+    .connect {
+        background-image: url('connect.svg');
+    }
+
+    .align {
+        background-image: url('align.svg');
+    }
+
+    .feature-card h3 {
+        font-family: myFont3, sans-serif;
+        font-size: 20px;
+        color: #2F3A42;
+        margin-bottom: 10px;
+    }
+
+    .feature-card p {
+        font-family: myFont2, sans-serif;
+        font-size: 16px;
+        color: #555555;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .image-container {
+        width: 30px;
+        height: 20px;
+        background-image: url('logo.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <a href="alignlanding.html">
+        <div class="image-container"></div>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="login.html">Log in</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Find Your Calm, Transform Your World</h1>
+        <p>Feel happier, healthier, and motivated to take on your day with Align.</p>
+        <button class="try-for-free">
+            <img src="tryforfreebutton-default.svg" alt="Try for Free" class="button-icon">
+        </button>
+    </div>
+
+    <img src="images/zengirl.png" alt="Zen Girl Image" class="header-image">
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <div class="feature-icon track"></div>
+        <h3>Track</h3>
+        <p>Log exercise, weight, and mental wellness for comprehensive progress tracking</p>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon connect"></div>
+        <h3>Connect</h3>
+        <p>Share your journey, track other’s progress, and spread encouragement</p>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon align"></div>
+        <h3>Align</h3>
+        <p>Curated daily affirmations to align your mood and life goals</p>
+    </div>
+</section>
+
+</body>
+</html>
