@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navigation Bar</title>
+    <meta charset="UTF-8">
+    <style>
+
+        @font-face{
+        font-family: myFont; 
+        src: url(sourcesemi.ttf);
+    }
+
+    @font-face{
+        font-family: myFont2; 
+        src: url(sourcereg.ttf);
+    }
+        body {
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            background-color: #F2F3F5; /* Light gray background */
+        }
+
+        header  {
+    background-color: #FFFFFF; /* Light blue background */
+    display: flex; /* Flexbox for spacing */
+    align-items: center; /* Center vertically */
+    justify-content: flex-start; /* Space between links and logo */
+    padding: 10px 30px; /* Space around navbar */
+    position: fixed; /* Make the header stay in place */
+    top: 0; /* Stick to the top of the viewport */
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+}
+
+       nav ul {
+        list-style: none; /* Remove bullets */
+        padding: 10;
+        margin: 0;
+        display: flex; /* Horizontal layout */
+        gap: 20px; /* Space between items */
+        justify-content: flex-start;
+    }
+
+        nav ul li a {
+        text-decoration: none; /* Remove underline */
+        color: #000000; /* Dark text for links */
+        font-size: 16px;
+        font-weight: normal;
+        padding: 5px 10px;
+        font-family: myFont2;
+    }
+
+    .image-container {
+        width: 30px;  /* Adjust the size of the div */
+        height: 20px; /* Adjust the size of the div */
+        background-image: url('logo.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    </style>
+</head>
+<body>
+   <header>
+    <a href="alignlanding.html">
+        <div class="image-container"></div>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>
